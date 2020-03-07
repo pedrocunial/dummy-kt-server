@@ -6,6 +6,7 @@ import br.com.pedrocunial.dummy.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
+@CrossOrigin
 @RestController
 @RequestMapping("user")
 class UserController {
@@ -13,7 +14,7 @@ class UserController {
     @Autowired
     lateinit var userService: UserService
 
-    @GetMapping("/{id}", produces = ["application/json"])
+    @GetMapping("/{id}")
     fun getUser(@PathVariable id: Long): User? = userService.fetchById(id)
 
     @PostMapping

@@ -21,7 +21,11 @@ class UserService {
         return user
     }
 
-    fun fetchById(id: Long): User? = userRepository
-            .findById(id)
-            .orElse(null)
+    fun fetchById(id: Long): User? {
+        val user = userRepository
+                .findById(id)
+                .orElse(null)
+
+        return user
+    }
 }
